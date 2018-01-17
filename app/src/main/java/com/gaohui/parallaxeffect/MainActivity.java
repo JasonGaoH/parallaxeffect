@@ -1,12 +1,8 @@
 package com.gaohui.parallaxeffect;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.os.Bundle;
 import android.view.View;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.ArrayAdapter;
@@ -23,10 +19,10 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final MyListView mListView = (MyListView) findViewById(R.id.lv);
+        final MyListView mListView = findViewById(R.id.lv);
 
         final View mHeaderView = View.inflate(MainActivity.this, R.layout.view_header, null);
-        final ImageView mImage = (ImageView) mHeaderView.findViewById(R.id.iv);
+        final ImageView mImage = mHeaderView.findViewById(R.id.iv);
 
         mHeaderView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
 
@@ -42,6 +38,6 @@ public class MainActivity extends Activity {
         mListView.addHeaderView(mHeaderView);
 
 
-        mListView.setAdapter(new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, Cheeses.NAMES));
+        mListView.setAdapter(new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, Cheeses.NAMES));
     }
 }
